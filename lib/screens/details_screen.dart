@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peliculas/widgets/widgets.dart';
 
 class DetailsScreen extends StatelessWidget {
 
@@ -17,7 +18,11 @@ class DetailsScreen extends StatelessWidget {
           _CustomAppBar(),
           SliverList(
             delegate: SliverChildListDelegate([
-              _PosterAndTitle()
+              _PosterAndTitle(),
+              _Overview(),
+              _Overview(),
+              _Overview(),
+              CastingCards()
               //Text('hola mundo')
             ],
             )
@@ -27,8 +32,9 @@ class DetailsScreen extends StatelessWidget {
       
     );
   }
-}class _CustomAppBar extends StatelessWidget {
-  
+}
+
+class _CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +49,7 @@ class DetailsScreen extends StatelessWidget {
         title: Container(
           width: double.infinity,
           alignment: Alignment.bottomCenter,
+          padding: EdgeInsets.only(bottom: 10),
           color: Colors.black12,
           child: Text(
             'movie.title',
@@ -61,6 +68,9 @@ class DetailsScreen extends StatelessWidget {
 }
 
 class _PosterAndTitle extends StatelessWidget {
+
+
+
   
   @override
   Widget build(BuildContext context) {
@@ -100,6 +110,24 @@ class _PosterAndTitle extends StatelessWidget {
           )
         ]
       ),
+    );
+  }
+}
+
+
+class _Overview extends StatelessWidget {
+  
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+      child: Text(
+        'In pariatur consectetur cupidatat esse duis exercitation officia non excepteur adipisicing eiusmod do eu. Ex sint esse irure proident aliquip commodo duis eu elit excepteur irure nulla cupidatat. Nostrud duis Lorem enim laboris laboris pariatur non exercitation aliquip dolor eiusmod reprehenderit pariatur.',
+        textAlign: TextAlign.justify, 
+        style: Theme.of(context).textTheme.subtitle1,
+      ),
+
     );
   }
 }
