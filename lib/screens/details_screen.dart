@@ -51,7 +51,7 @@ class DetailsScreen extends StatelessWidget {
         ),
         background: FadeInImage(
           placeholder: AssetImage('assets/loading.gif'),
-          image: NetworkImage('https://via.placeholder.com/500x300'),
+          image: NetworkImage('https://via.placeholder.com/500x300.png'),
           fit: BoxFit.cover,
 
         ),
@@ -76,7 +76,7 @@ class _PosterAndTitle extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
             child: FadeInImage(
               placeholder: AssetImage('assets/no-image.jpg'),
-              image: NetworkImage('https://via.placeholder.com/200x300'),
+              image: NetworkImage('https://via.placeholder.com/200x300.png'),
               height: 150,
             ),
           ),
