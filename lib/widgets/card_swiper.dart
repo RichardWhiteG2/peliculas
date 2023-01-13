@@ -2,8 +2,16 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 
+import '../models/models.dart';
+
 class CardSwiper extends StatelessWidget {
   
+  final List <Movie> movies;
+
+  const CardSwiper({
+    super.key, 
+    required this.movies
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +25,17 @@ class CardSwiper extends StatelessWidget {
       width: double.infinity,  //Tomar todo el ancho posible basado en el padre.
       height: size.height * 0.5,
       //color: Colors.pinkAccent,
+      
       //Construccion del carrete
       child: Swiper(
-        itemCount: 10,
+        itemCount: movies.length,
         layout: SwiperLayout.STACK,
         itemWidth: size.width * 0.6,
         itemHeight: size.height * 0.5,
         itemBuilder: ( _ , int index){
+
+          final movie = movies[index];
+          
           
           return GestureDetector(
             //NAvigator te lleva a otra pantalla. 
@@ -33,7 +45,7 @@ class CardSwiper extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
               child: FadeInImage(
                 placeholder: AssetImage('assets/no-image.jpg'),
-                image: NetworkImage('https://via.placeholder.com/300x400.png'),
+                image: NetworkImage(movie.fullPosterImg),
                 fit: BoxFit.cover,
                 
               ),
