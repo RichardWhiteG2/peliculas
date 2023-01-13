@@ -8,6 +8,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
+import 'package:peliculas/models/models.dart';
+
 
 class MoviesProvider extends ChangeNotifier {
 
@@ -31,8 +33,10 @@ class MoviesProvider extends ChangeNotifier {
 
     // Await the http get response, then decode the json-formatted response.
     final response = await http.get(url);
-    final Map<String, dynamic> decodedData = json.decode(response.body);
+    final nowPlayingResponse = NowPlayingResponse.fromJson(response.body);
+    //final Map<String, dynamic> decodedData = json.decode(response.body);
 
-    print(decodedData['dates']);
+    //print(decodedData['results']);
+    print(nowPlayingResponse.results[1].title);
   }
 }
