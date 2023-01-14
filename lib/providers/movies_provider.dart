@@ -21,13 +21,17 @@ class MoviesProvider extends ChangeNotifier {
   
   List<Movie> onDisplayMovies = [];
   List<Movie> popularMovies = [];
+  List<Movie> upcomingMovies = [];
   int _popularPage =0;
+  int _upcomingPage =0;
 
   MoviesProvider(){
     print('MoviesProvider inicializado');
     this.getOnDisplayMovies(); 
 
     this.getPopularMovies();
+
+    this.getUpcomingMovies();
   }
 
   Future<String> _getJsonData(String endpoint, [int page = 1] )async{
@@ -68,6 +72,20 @@ class MoviesProvider extends ChangeNotifier {
     //print(nowPlayingResponse.results[1].title);
     popularMovies = [...popularMovies, ...popularResponse.results];
     print(popularMovies[0]);
+    notifyListeners();
+  }
+
+  getUpcomingMovies() async {
+    _upcomingPage++;
+    final jsonData = await this._getJsonData('3/movie/upcoming', _popularPage);
+    
+    final upcomingResponse = UpcomingResponse.fromJson(jsonData);//PopularResponse.fromJson(response.body);
+    //final Map<String, dynamic> decodedData = json.decode(response.body);
+
+    //print(decodedData['results']);
+    //print(nowPlayingResponse.results[1].title);
+    upcomingMovies =  [...upcomingMovies, ...upcomingResponse.results];
+    print(upcomingMovies[0]);
     notifyListeners();
   }
 }
