@@ -28,8 +28,10 @@ class HomeScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
         children: [
+          SizedBox(height: 30),
           //Tarjetas principales
           CardSwiper(movies: moviesProvider.onDisplayMovies),
+          SizedBox(height: 20),
 
 
           //Listado horizontal de peliculas.

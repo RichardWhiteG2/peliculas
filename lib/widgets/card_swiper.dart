@@ -19,7 +19,15 @@ class CardSwiper extends StatelessWidget {
     //Para conocer el tamaño de la pantalla y scar el 50%
     final size = MediaQuery.of(context).size;
 
-
+    if(this.movies.length==0){
+      return Container(
+        width: double.infinity,
+        height: size.height * 0.5,
+        child: Center(
+          child: CircularProgressIndicator(),
+        ) 
+      );
+    }
 
     return Container(
       width: double.infinity,  //Tomar todo el ancho posible basado en el padre.
