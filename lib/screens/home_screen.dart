@@ -36,7 +36,10 @@ class HomeScreen extends StatelessWidget {
 
           //Listado horizontal de peliculas.
 
-          MovieSlider(),
+          MovieSlider(
+            movies: moviesProvider.popularMovies, //populares
+            title: 'Populares', //Opcional.
+          ),
         ],
       ),
       )
