@@ -47,7 +47,7 @@ class CardSwiper extends StatelessWidget {
           
           return GestureDetector(
             //NAvigator te lleva a otra pantalla. 
-            onTap: () => Navigator.pushNamed(context, 'details', arguments: 'movie-instance'),
+            onTap: () => Navigator.pushNamed(context, 'details', arguments: movie),
             //ClipRRect genera bordes redondeados. 
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
