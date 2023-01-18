@@ -23,7 +23,7 @@ class DetailsScreen extends StatelessWidget {
               
               _Overview(movie),
               
-              CastingCards()
+              CastingCards(movie.id),
               //Text('hola mundo')
             ],
             )
