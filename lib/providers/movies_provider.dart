@@ -79,9 +79,8 @@ class MoviesProvider extends ChangeNotifier {
   }
 
   Future <List<Cast>> getMovieCast ( int movieId) async{
-    //TODO: revisar el mapa
-
-    print('Pidiendo informacion al servidor --cast');
+    
+    if(moviesCast.containsKey(movieId)) return moviesCast[movieId]!;
 
     final jsonData = await this._getJsonData('3/movie/$movieId/credits');
 
@@ -98,12 +97,10 @@ class MoviesProvider extends ChangeNotifier {
     final jsonData = await this._getJsonData('3/movie/upcoming', _popularPage);
     
     final upcomingResponse = UpcomingResponse.fromJson(jsonData);//PopularResponse.fromJson(response.body);
-    //final Map<String, dynamic> decodedData = json.decode(response.body);
 
-    //print(decodedData['results']);
-    //print(nowPlayingResponse.results[1].title);
+    
     upcomingMovies =  [...upcomingMovies, ...upcomingResponse.results];
-    print(upcomingMovies[0]);
+    //print(upcomingMovies[0]);
     notifyListeners();
   }
 }
