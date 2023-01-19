@@ -42,7 +42,7 @@ class MovieSearchDelegate extends SearchDelegate {
     if(query.isEmpty){
       return Container(
         child: Center(
-          child: Icon( Icons.movie_creation_outlined, color: Colors.black38, size: 100,)
+          child: Icon( Icons.movie_creation_outlined, color: Colors.black38, size: 130,)
         ),
       );
     }
