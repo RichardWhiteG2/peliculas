@@ -33,7 +33,7 @@ class Movie {
     double voteAverage;
     int voteCount;
 
-
+    //Para el hero
     String? heroId;
 
     get fullPosterImg {
